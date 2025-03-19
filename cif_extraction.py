@@ -39,19 +39,19 @@ for file in sorted(os.listdir(cif_folder)):  # Sorted for consistency
 
             # Extract lattice parameters
             if line.startswith("_cell_length_a"):
-                a = float(line.split()[-1])
+                a = extract_float(line.split()[-1])
             elif line.startswith("_cell_length_b"):
-                b = float(line.split()[-1])
+                b = extract_float(line.split()[-1])
             elif line.startswith("_cell_length_c"):
-                c = float(line.split()[-1])
+                c = extract_float(line.split()[-1])
             elif line.startswith("_cell_angle_alpha"):
-                alpha = float(line.split()[-1])
+                alpha = extract_float(line.split()[-1])
             elif line.startswith("_cell_angle_beta"):
-                beta = float(line.split()[-1])
+                beta = extract_float(line.split()[-1])
             elif line.startswith("_cell_angle_gamma"):
-                gamma = float(line.split()[-1])
+                gamma = extract_float(line.split()[-1])
             elif line.startswith("_cell_volume"):
-                vol = float(line.split()[-1])
+                vol = extract_float(line.split()[-1])
 
             # Detect the beginning of atomic site positions section
             if line.startswith("_atom_site_label"):
@@ -105,5 +105,4 @@ if not df.empty:
     print("All thanks to ID15B-Postdocs")
 else:
     print("No valid data found in the CIF files. Check file formatting.")
-
 
