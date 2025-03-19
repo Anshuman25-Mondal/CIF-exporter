@@ -99,7 +99,7 @@ df = pd.DataFrame(cif_data, columns=column_headers)
 
 # Save to Excel if data exists
 if not df.empty:
-    output_file = "cif_exported_data.xlsx"
+    output_file = os.path.join(cif_folder, "cif_exported_data.xlsx")
     df.to_excel(output_file, index=False)
     print(f"Data saved to {output_file}")
     print("All thanks to ID15B-Postdocs")
